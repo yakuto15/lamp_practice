@@ -1,0 +1,20 @@
+CREATE TABLE orders(
+    `order_id` INT(11) AUTO_INCREMENT,
+    `user_id` INT(11) NOT NULL,
+    `total` INT(11) DEFAULT 0,
+    `created` DATETIME NOT NULL CURRENT_TIMESTAMP,
+    `updated` DATETIME  NOT NULL CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+) ;
+
+CREATE TABLE details(
+    `detail_id` INT(11) AUTO_INCREMENT,
+    `order_id` INT(11),
+    `item_id` INT(11) NOT NULL,
+    `amount` INT(11) NOT NULL,
+    `subtotal` INT(11) NOT NULL,
+    `created` DATETIME NOT NULL CURRENT_TIMESTAMP,
+    `updated` DATETIME NOT NULL CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+);
+
+
+
