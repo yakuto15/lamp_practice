@@ -55,6 +55,7 @@
       <form method="post" action="finish.php">
         <input class="btn btn-block btn-primary" type="submit" value="購入する">
       </form>
+      
     <?php } else { ?>
       <p>カートに商品はありません。</p>
     <?php } ?> 

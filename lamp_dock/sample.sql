@@ -32,7 +32,10 @@ CREATE TABLE `carts` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
-
+SELECT items.name
+FROM carts
+OUTER JOIN items
+on carts.item_id = items.item_id;
 --
 -- テーブルの構造 `items`
 --
