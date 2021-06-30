@@ -13,6 +13,7 @@
     <?php include VIEW_PATH . 'templates/messages.php'; ?>
 
     <?php if(count($carts) > 0){ ?>
+    <?php var_dump($carts) ?>
       <table class="table table-bordered">
         <thead class="thead-light">
           <tr>

@@ -17,6 +17,8 @@ $user = get_login_user($db);
 
 $carts = get_user_carts($db, $user['user_id']);
 
+$total_price = sum_carts($carts);
+
 if(purchase_carts($db, $carts) === false){
   set_error('商品が購入できませんでした。');
   redirect_to(CART_URL);
@@ -24,13 +26,13 @@ if(purchase_carts($db, $carts) === false){
 
 $cart_id = get_post('cart_id');
 
-if(add_order($db,$user['user_id'],$cart_id)){
+if(add_order($db,$user,$cart_id,$total,$created)){
   set_message('購入履歴に追加しました');
 }else{
   set_error('失敗しました');
 }
 
-$orders = get_user_orders($db,$user_id['user_id']);
+$orders = get_user_orders($db,$user['user_id'],$cart_id);
 
 $total_price = sum_carts($carts);
 

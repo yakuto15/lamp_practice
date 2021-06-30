@@ -12,7 +12,7 @@ session_start();
 $db = get_db_connect();
 $user = get_login_user($db);
 
-$orders = get_open_orders($db);
+$orders = get_user_orders($db,$user['user_id']);
 
 include_once VIEW_PATH . 'order_view.php';
 

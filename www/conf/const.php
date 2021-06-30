@@ -1,4 +1,6 @@
 <?php
+ini_set("display_errors",1);
+error_reporting(E_ALL & ~E_STRICT);
 
 define('MODEL_PATH', $_SERVER['DOCUMENT_ROOT'] . '/../model/');
 define('VIEW_PATH', $_SERVER['DOCUMENT_ROOT'] . '/../view/');

@@ -16,13 +16,27 @@
                 <th>合計金額</th>
             </tr>
         </thead>
-    <?php foreach($orders as $order){ ?>
-        <tr>
-            <th>注文番号<?php print($order['order_id']);?></th>
-            <th>購入日時<?php print($order['created']);?></th>
-            <th>合計金額<?php print($order['total']);?>円</th>
-        </tr>
-    <?php }  ?>
+      
+    <?php if(count($orders) > 0){ ?>
+        <table class="table table-bordered">
+          <thead class="thead-light">
+            <tr>
+                <th>注文番号</th>
+                <th>購入日時</th>
+                <th>合計金額</th>
+            </tr>
+          </thead>
+          <tbody>
+            <?php foreach($orders as $order){ ?>
+                <?php print($orders['order_id']);?>
+                <?php print($orders['created']);?>
+                <?php print($orders['total']);?>
+            <?php } ?>
+          </tbody>
+        </table>
+    <?php }  else { ?>
+        <p>カートに商品はありません</p>
+    <?php } ?>
 </body>
 </html>    
 

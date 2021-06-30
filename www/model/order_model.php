@@ -132,10 +132,11 @@ function insert_order($db,$order_id,$user_id,$total,$created){
     return execute_query($db,$sql);
 }
 
-function add_order($db,$user_id,$cart_id){
-    get_user_order($db,$user_id,$cart_id);
-    if($order === false){
-        return insert_order($db,$user_id,$cart_id);
+function add_order($db,$user_id,$cart_id,$total,$created){
+    $orders = get_user_order($db,$user_id,$total,$cart_id);
+    if($orders === false){
+        $created = date('Y/m/d H:i:s');
+        return insert_order($db,$user_id,$cart_id,$total,$created);
     }
     return update_order_time($db,$order['order_id'],$order['created']);
 }
